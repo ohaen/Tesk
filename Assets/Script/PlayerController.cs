@@ -2,17 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ColorType
+{
+    RED,
+    BLUE,
+}
+[System.Serializable]
+public class ColorEvent : UnityEngine.Events.UnityEvent<ColorType> { }
 public class PlayerController : MonoBehaviour
 {
-    public static List<Ball> balls;
+    private static PlayerController instance = null;
+    public static ColorType colorType = ColorType.RED;
+    public ColorEvent colorEvent = new ColorEvent();
 
-    public enum ColorType
+    private void Awake()
     {
-        RED,
-        BLUE,
+        Time.timeScale = 0.5f;
+        if(null == instance)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    public static ColorType colorType = ColorType.RED;
+    public static PlayerController Instance()
+    {
+        if(null == instance)
+        {
+            return null;
+        }
+        return instance;
+    }
 
     private void Start()
     {
@@ -24,6 +47,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             colorType = (colorType == ColorType.BLUE) ? ColorType.RED : ColorType.BLUE;
+            colorEvent.Invoke(colorType);
             Debug.Log(colorType);
         }
     }
