@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public List<Ball> balls;
+    public static List<Ball> balls;
 
     public enum ColorType
     {
