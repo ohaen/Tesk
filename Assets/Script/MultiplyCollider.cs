@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class MultiplyCollider : MonoBehaviour
 {
+    public int multiplyCount;
+
+
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Ball"))
+        if(PlayerController.colorType==PlayerController.ColorType.BLUE)
         {
-            Instantiate(other.transform.gameObject);
-            Instantiate(other.transform.gameObject);
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        for (int i = 0; i < multiplyCount; ++i)
+        {
+            Instantiate(other.gameObject);
         }
     }
 }
