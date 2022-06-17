@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshRenderer.material.color = PlayerController.colorType == ColorType.RED ? Color.red : Color.blue;
         PlayerController.Instance().colorEvent.AddListener(ChangeColor);
-        StartCoroutine("ChangeSizeCollider");
+        StartCoroutine(nameof(ChangeSizeCollider));
     }
 
     private void Update()
@@ -42,12 +42,11 @@ public class Ball : MonoBehaviour
         float time = 0.0f;
         while(time<1.0f)
         {
-            time += Time.deltaTime;
-            _collider.radius = Mathf.Lerp(0.0f, 0.5f, time);
+            time += Time.deltaTime * 2;
+            _collider.radius = Mathf.Lerp(0.1f, 0.5f, time);
             yield return null;
         }
         StopAllCoroutines();
-        time = 0.0f;
         yield return null;
     }
 }

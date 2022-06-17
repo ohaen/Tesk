@@ -5,6 +5,7 @@ using UnityEngine;
 public class MultiplyCollider : MonoBehaviour
 {
     public int multiplyCount;
+    public ColorType colliderColor;
     private void Start()
     {
         PlayerController.Instance().colorEvent.AddListener(ChangeColor);
@@ -12,7 +13,7 @@ public class MultiplyCollider : MonoBehaviour
 
     void ChangeColor(ColorType colorType)
     {
-        if (colorType == ColorType.RED)
+        if (colorType == colliderColor)
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
@@ -22,9 +23,9 @@ public class MultiplyCollider : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(PlayerController.colorType==ColorType.BLUE)
+        if(PlayerController.colorType!= colliderColor)
         {
             Destroy(other.gameObject);
         }
@@ -32,10 +33,10 @@ public class MultiplyCollider : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Vector3 velo = other.GetComponent<Rigidbody>().velocity;
         for (int i = 0; i < multiplyCount; ++i)
         {
-            Instantiate(other.gameObject);
+            Instantiate(other.gameObject).GetComponent<Rigidbody>().velocity = velo;
         }
     }
 }

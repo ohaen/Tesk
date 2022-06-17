@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public static ColorType colorType = ColorType.RED;
     public ColorEvent colorEvent = new ColorEvent();
 
+
     private void Awake()
     {
         Time.timeScale = 0.5f;
@@ -44,7 +45,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+
+
+        if (Input.GetMouseButtonDown(0))
         {
             colorType = (colorType == ColorType.BLUE) ? ColorType.RED : ColorType.BLUE;
             colorEvent.Invoke(colorType);
