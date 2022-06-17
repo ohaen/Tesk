@@ -18,10 +18,6 @@ public class Ball : MonoBehaviour
         PlayerController.Instance().colorEvent.AddListener(ChangeColor);
         StartCoroutine(nameof(ChangeSizeCollider));
     }
-
-    private void Update()
-    {
-    }
     
     void ChangeColor(ColorType colorType)
     {
@@ -46,7 +42,7 @@ public class Ball : MonoBehaviour
             _collider.radius = Mathf.Lerp(0.1f, 0.5f, time);
             yield return null;
         }
-        StopAllCoroutines();
+        StopCoroutine(nameof(ChangeSizeCollider));
         yield return null;
     }
 }
