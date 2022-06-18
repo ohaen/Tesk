@@ -17,7 +17,8 @@ public class FollowCam : MonoBehaviour
         if(null != followObject)
         {
             Vector3 followY = new Vector3(transform.position.x, followObject.position.y + offsetY, transform.position.z);
-            this.transform.position = followY;
+            Vector3 smooth = Vector3.Lerp(transform.position, followY, 0.01f);
+            this.transform.position = smooth;
         }
     }
     private void OnTriggerEnter(Collider other)

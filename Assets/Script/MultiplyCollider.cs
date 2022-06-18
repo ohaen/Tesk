@@ -34,9 +34,13 @@ public class MultiplyCollider : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Vector3 velo = other.GetComponent<Rigidbody>().velocity;
+        Vector3 random;
+        random.x = Random.Range(0.0f, velo.x);
+        random.y = Random.Range(0.0f, velo.y);
+        random.z = 0.0f;
         for (int i = 0; i < multiplyCount; ++i)
         {
-            Instantiate(other.gameObject).GetComponent<Rigidbody>().velocity = velo;
+            Instantiate(other.gameObject).GetComponent<Rigidbody>().velocity = random;
         }
     }
 }
