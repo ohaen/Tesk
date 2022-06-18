@@ -27,7 +27,8 @@ public class MultiplyCollider : MonoBehaviour
     {
         if(PlayerController.colorType!= colliderColor)
         {
-            Destroy(other.gameObject);
+            ObjectPool.ReturnObject(other.gameObject);
+            //Destroy(other.gameObject);
         }
     }
 
@@ -40,7 +41,8 @@ public class MultiplyCollider : MonoBehaviour
         random.z = 0.0f;
         for (int i = 0; i < multiplyCount; ++i)
         {
-            Instantiate(other.gameObject).GetComponent<Rigidbody>().velocity = random;
+            ObjectPool.GetObject(other.transform.position).GetComponent<Rigidbody>().velocity = random;
+            //Instantiate(other.gameObject).GetComponent<Rigidbody>().velocity = random;
         }
     }
 }

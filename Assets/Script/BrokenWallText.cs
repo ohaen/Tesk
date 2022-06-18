@@ -14,4 +14,5 @@ public class BrokenWallText : MonoBehaviour
         _text = GetComponent<Text>();
         _text.text = $"{_count}";
     }
+
 }

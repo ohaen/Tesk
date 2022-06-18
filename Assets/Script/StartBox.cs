@@ -52,7 +52,7 @@ public class StartBox : MonoBehaviour
             float X = Random.Range(-0.3f, 0.3f);
             float Y = Random.Range(-0.3f, 0.3f);
             Vector3 position = new Vector3(X, Y, 0f);
-            Instantiate(ball, transform.position + position, transform.rotation);
+            ObjectPool.GetObject(transform.position + position);
             ++count;
             yield return new WaitForSeconds(0.05f);
         }
