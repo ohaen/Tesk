@@ -31,6 +31,7 @@ public class MultiplyCollider : MonoBehaviour
             if(ObjectPool.activeBallCount == 0)
             {
                 Debug.Log("gameOver");
+                StageManager.instance.OnGameOver();
             }
         }
     }

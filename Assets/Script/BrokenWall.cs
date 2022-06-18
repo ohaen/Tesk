@@ -27,6 +27,7 @@ public class BrokenWall : MonoBehaviour
         if(ObjectPool.activeBallCount == _ballCount && ObjectPool.activeBallCount < needBall)
         {
             Debug.Log("gameOver");
+            StageManager.instance.OnGameOver();
         }
     }
 }

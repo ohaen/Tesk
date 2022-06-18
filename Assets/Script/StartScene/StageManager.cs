@@ -5,10 +5,11 @@ using UnityEngine;
 public class StageManager : MonoBehaviour
 {
     public static StageManager instance;
+    public GameObject gameOver;
+    public GameObject nextStage;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
         if (instance == null)
         {
             instance = this;
@@ -18,7 +19,14 @@ public class StageManager : MonoBehaviour
             Destroy(this);
         }
     }
-    // Start is called before the first frame update
+    public void OnGameOver()
+    {
+        gameOver.SetActive(true);
+    }
+    public void OnNextStage()
+    {
+        nextStage.SetActive(true);
+    }
     void Start()
     {
         

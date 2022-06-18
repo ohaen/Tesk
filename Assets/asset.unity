@@ -1108,6 +1108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851da79dca52f9f48b872d23fb1eb0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: {fileID: 1148320326}
+  nextStage: {fileID: 597348558}
 --- !u!4 &833105737
 Transform:
   m_ObjectHideFlags: 0

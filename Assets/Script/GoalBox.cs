@@ -24,6 +24,7 @@ public class GoalBox : MonoBehaviour
         if(ObjectPool.activeBallCount == _score)
         {
             Debug.Log("VictoryGame");
+            StageManager.instance.OnNextStage();
         }
     }
 }
