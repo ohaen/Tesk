@@ -28,7 +28,10 @@ public class MultiplyCollider : MonoBehaviour
         if(PlayerController.colorType!= colliderColor)
         {
             ObjectPool.ReturnObject(other.gameObject);
-            //Destroy(other.gameObject);
+            if(ObjectPool.activeBallCount == 0)
+            {
+                Debug.Log("gameOver");
+            }
         }
     }
 

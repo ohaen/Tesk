@@ -21,5 +21,9 @@ public class GoalBox : MonoBehaviour
         {
             PlayerController.isEndGame = true;
         }
+        if(ObjectPool.activeBallCount == _score)
+        {
+            Debug.Log("VictoryGame");
+        }
     }
 }
