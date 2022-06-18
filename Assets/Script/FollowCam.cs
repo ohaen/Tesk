@@ -7,11 +7,7 @@ public class FollowCam : MonoBehaviour
     public float offsetY = 0.0f;
     private bool _isFollow = false;
     private Transform followObject = null;
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if(null != followObject)
@@ -34,7 +30,7 @@ public class FollowCam : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Ball"))
+        if(other.CompareTag("Ball") && false == PlayerController.isEndGame)
         {
             followObject = other.transform;
         }

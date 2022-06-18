@@ -32,12 +32,16 @@ public class StartBox : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        if(_doStart == false)
+        {
+            StartCoroutine(nameof(ReverseBox));
+        }
         _doStart = true;
         _isClick = false;
-        StartCoroutine(nameof(ReverseBox));
     }
     IEnumerator ReverseBox()
     {
+        PlayerController.isStartGame = true;
         float time = 0.0f;
         while(time < 1.0f)
         {

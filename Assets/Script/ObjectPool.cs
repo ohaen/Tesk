@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool Instance;
+    public static int activeBallCount = 0;
 
     [SerializeField]
     private GameObject _ball;
@@ -39,6 +40,7 @@ public class ObjectPool : MonoBehaviour
     }
     public static GameObject GetObject(Vector3 position)
     {
+        ++activeBallCount;
         if (Instance.ballQueue.Count > 0)
         {
             var obj = Instance.ballQueue.Dequeue();
@@ -54,10 +56,12 @@ public class ObjectPool : MonoBehaviour
             newObj.gameObject.SetActive(true);
             return newObj;
         }
+        
     }
 
     public static void ReturnObject(GameObject obj)
     {
+        --activeBallCount;
         obj.gameObject.SetActive(false);
         obj.transform.SetParent(Instance.transform);
         Instance.ballQueue.Enqueue(obj);

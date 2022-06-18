@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
 {
     private static PlayerController instance = null;
     public static ColorType colorType = ColorType.RED;
+    public static bool isStartGame = false;
+    public static bool isEndGame = false;
     public ColorEvent colorEvent = new ColorEvent();
 
 
@@ -38,16 +40,10 @@ public class PlayerController : MonoBehaviour
         return instance;
     }
 
-    private void Start()
-    {
-        
-    }
 
     void Update()
     {
-
-
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && true == isStartGame)
         {
             colorType = (colorType == ColorType.BLUE) ? ColorType.RED : ColorType.BLUE;
             colorEvent.Invoke(colorType);
