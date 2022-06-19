@@ -6,6 +6,7 @@ public class ObjectPool : MonoBehaviour
 {
     public static ObjectPool Instance;
     public static int activeBallCount = 0;
+    public static List<GameObject> _balls = new List<GameObject>();
 
     [SerializeField]
     private GameObject _ball;
@@ -13,7 +14,9 @@ public class ObjectPool : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        _balls.Clear();
+        activeBallCount = 0;
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -36,6 +39,7 @@ public class ObjectPool : MonoBehaviour
         var newObj = Instantiate(_ball);
         newObj.gameObject.SetActive(false);
         newObj.transform.SetParent(transform);
+        _balls.Add(newObj);
         return newObj;
     }
     public static GameObject GetObject(Vector3 position)

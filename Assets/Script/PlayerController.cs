@@ -18,9 +18,11 @@ public class PlayerController : MonoBehaviour
     public ColorEvent colorEvent = new ColorEvent();
 
 
+
     private void Awake()
     {
-        Time.timeScale = 0.5f;
+        ResetStage();
+        Time.timeScale = 0.7f;
         if(null == instance)
         {
             instance = this;
@@ -49,6 +51,15 @@ public class PlayerController : MonoBehaviour
             colorEvent.Invoke(colorType);
             Debug.Log(colorType);
         }
+    }
+
+        public void ResetStage()
+    {
+        colorType = ColorType.RED;
+        isStartGame = false;
+        isEndGame = false;
+        StageManager.instance.ChangeCamPosition();
+        ObjectPool._balls.Clear();
     }
 
 }

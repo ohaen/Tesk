@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class GoalBox : MonoBehaviour
 {
-    public static List<GameObject> _balls = new List<GameObject>();
     private int _score;
 
-    public BallBomeEffect effect;
 
     private void OnTriggerEnter(Collider other)
     {
-        _balls.Add(other.gameObject);
         Debug.Log(ObjectPool.activeBallCount);
         if(other.CompareTag("Ball"))
         {
@@ -31,18 +28,17 @@ public class GoalBox : MonoBehaviour
             Debug.Log("VictoryGame");
             StageManager.instance.OnNextStage();
             BoomEffect();
-            //effect.BoomEffect();
         }
     }
 
     public void BoomEffect()
     {
-        for (int i = 0; i < _balls.Count; ++i)
+        for (int i = 0; i < ObjectPool._balls.Count; ++i)
         {
-            Vector3 velocity = new Vector3(Random.Range(5.0f, 15.0f)
-                , Random.Range(5.0f, 15.0f)
-                , Random.Range(5.0f, 15.0f));
-            _balls[i].gameObject.GetComponent<Rigidbody>().velocity = velocity;
+            Vector3 velocity = new Vector3(Random.Range(-10.0f, 10.0f)
+                , 10.0f
+                , Random.Range(-10.0f, 10.0f));
+            ObjectPool._balls[i].gameObject.GetComponent<Rigidbody>().velocity = velocity;
         }
     }
 }
