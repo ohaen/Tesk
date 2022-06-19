@@ -45,7 +45,7 @@ public class ObjectPool : MonoBehaviour
         {
             var obj = Instance.ballQueue.Dequeue();
             obj.transform.position = position;
-            //obj.transform.SetParent(null);
+            obj.layer = 6;
             obj.gameObject.SetActive(true);
             return obj;
         }

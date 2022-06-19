@@ -1022,7 +1022,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4472854693177184675, guid: 0b544b539325902478be60509cad06c0, type: 3}
       propertyPath: multiplyCount
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4472854693177184679, guid: 0b544b539325902478be60509cad06c0, type: 3}
       propertyPath: m_RootOrder
@@ -1682,6 +1682,7 @@ GameObject:
   - component: {fileID: 1118074301}
   - component: {fileID: 1118074300}
   - component: {fileID: 1118074299}
+  - component: {fileID: 1118074303}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1771,6 +1772,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1118074303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118074298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92baf611482c73f498aedf21bd5ab280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138780891
 GameObject:
   m_ObjectHideFlags: 0
@@ -2060,9 +2073,9 @@ GameObject:
   - component: {fileID: 1338289377}
   - component: {fileID: 1338289376}
   - component: {fileID: 1338289375}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackCollider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2440,9 +2453,9 @@ GameObject:
   - component: {fileID: 1430295988}
   - component: {fileID: 1430295987}
   - component: {fileID: 1430295986}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontCollider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2701,7 +2714,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1619279227}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1118074303}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: GameOverButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1619279227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2992,7 +3017,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1971506118}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1118074303}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: NextStageButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1971506118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,7 +3652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4504324618625056302, guid: d5a610ee6a1b8c34c8d6d525d2842ff1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.482832
+      value: 17.48283
       objectReference: {fileID: 0}
     - target: {fileID: 4504324618625056302, guid: d5a610ee6a1b8c34c8d6d525d2842ff1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3644,14 +3681,6 @@ PrefabInstance:
     - target: {fileID: 4504324618625056302, guid: d5a610ee6a1b8c34c8d6d525d2842ff1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504324618625056303, guid: d5a610ee6a1b8c34c8d6d525d2842ff1, type: 3}
-      propertyPath: m_Size.y
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 4504324618625056303, guid: d5a610ee6a1b8c34c8d6d525d2842ff1, type: 3}
-      propertyPath: m_Center.y
-      value: 0.63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5a610ee6a1b8c34c8d6d525d2842ff1, type: 3}

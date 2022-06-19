@@ -27,14 +27,6 @@ public class StageManager : MonoBehaviour
     {
         nextStage.SetActive(true);
     }
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
