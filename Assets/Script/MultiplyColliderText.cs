@@ -7,10 +7,16 @@ public class MultiplyColliderText : MonoBehaviour
 {
     private Text _text;
     private int _count;
+    public MultiplyCollider multiplyCollider;
 
+    //private void Awake()
+    //{
+        
+    //}
     void Start()
     {
-        _count = transform.parent.parent.GetComponent<MultiplyCollider>().multiplyCount;
+        //multiplyCollider = GetComponent<MultiplyCollider>();
+        _count = multiplyCollider.multiplyCount;
         _text = GetComponent<Text>();
         _text.text = $"X {_count}";
     }

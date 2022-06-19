@@ -6,6 +6,7 @@ public class MultiplyCollider : MonoBehaviour
 {
     public int multiplyCount;
     public ColorType colliderColor;
+    public GameObject neddle;
     private void Start()
     {
         PlayerController.Instance().colorEvent.AddListener(ChangeColor);
@@ -15,11 +16,11 @@ public class MultiplyCollider : MonoBehaviour
     {
         if (colorType == colliderColor)
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            neddle.SetActive(false);
         }
         else
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            neddle.SetActive(true);
         }
     }
 

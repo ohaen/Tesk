@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         isStartGame = false;
         isEndGame = false;
         StageManager.instance.ChangeCamPosition();
-        ObjectPool._balls.Clear();
+        //ObjectPool._balls.Clear();
     }
 
 }

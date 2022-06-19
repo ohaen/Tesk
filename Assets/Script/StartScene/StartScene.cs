@@ -5,9 +5,18 @@ using UnityEngine;
 public class StartScene : MonoBehaviour
 {
     public static int stage = 0;
+    private StartScene obj;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        obj = FindObjectOfType<StartScene>();
+        if (obj == null)
+        {
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
 }
