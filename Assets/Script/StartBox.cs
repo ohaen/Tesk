@@ -60,6 +60,7 @@ public class StartBox : MonoBehaviour
             ++count;
             yield return new WaitForSeconds(0.05f);
         }
+        StopAllCoroutines();
         yield return null;
     }
 }

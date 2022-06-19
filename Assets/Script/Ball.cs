@@ -39,7 +39,7 @@ public class Ball : MonoBehaviour
         while(time<1.0f)
         {
             time += Time.deltaTime * 2;
-            _collider.radius = Mathf.Lerp(0.1f, 0.5f, time);
+            _collider.radius = Mathf.Lerp(0.0f, 0.5f, time);
             yield return null;
         }
         StopCoroutine(nameof(ChangeSizeCollider));

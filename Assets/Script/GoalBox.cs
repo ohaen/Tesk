@@ -9,7 +9,6 @@ public class GoalBox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(ObjectPool.activeBallCount);
         if(other.CompareTag("Ball"))
         {
             other.gameObject.layer = 8;
@@ -25,7 +24,7 @@ public class GoalBox : MonoBehaviour
         }
         if(ObjectPool.activeBallCount == _score)
         {
-            Debug.Log("VictoryGame");
+            PlayerController.isStartGame = false;
             StageManager.instance.OnNextStage();
             BoomEffect();
         }

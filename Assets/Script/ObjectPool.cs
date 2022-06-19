@@ -48,6 +48,7 @@ public class ObjectPool : MonoBehaviour
         if (Instance.ballQueue.Count > 0)
         {
             var obj = Instance.ballQueue.Dequeue();
+            obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
             obj.transform.position = position;
             obj.layer = 6;
             obj.gameObject.SetActive(true);

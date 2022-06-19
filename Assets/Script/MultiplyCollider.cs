@@ -10,6 +10,7 @@ public class MultiplyCollider : MonoBehaviour
     private void Start()
     {
         PlayerController.Instance().colorEvent.AddListener(ChangeColor);
+
     }
 
     void ChangeColor(ColorType colorType)
