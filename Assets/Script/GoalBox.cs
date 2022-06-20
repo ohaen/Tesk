@@ -24,9 +24,17 @@ public class GoalBox : MonoBehaviour
         }
         if(ObjectPool.activeBallCount == _score)
         {
+            ++StartScene.stage;
             PlayerController.isStartGame = false;
-            StageManager.instance.OnNextStage();
             BoomEffect();
+            if (StartScene.stage > StageManager.instance.LastStageCount())
+            {
+                StageManager.instance.OnClearGame();
+            }
+            else
+            {
+                StageManager.instance.OnNextStage();
+            }
         }
     }
 

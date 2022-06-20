@@ -8,10 +8,6 @@ public class Button : MonoBehaviour
     public void GameOverButton()
     {
         SceneManager.LoadSceneAsync(0);
-        //SceneManager.LoadScene(1);
-        //AllReturnBall();
-        //PlayerController.Instance().ResetStage();
-        //StageManager.instance.OffGameOver();
     }
 
     public void NextStageButton()
@@ -22,6 +18,10 @@ public class Button : MonoBehaviour
         StageManager.instance.OffNextStage();
     }
 
+    public void ClearGameButton()
+    {
+        Application.Quit();
+    }
     public void AllReturnBall()
     {
         for (int i = 0; i < ObjectPool._balls.Count; ++i)

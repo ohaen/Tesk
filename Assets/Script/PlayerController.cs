@@ -53,12 +53,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-        public void ResetStage()
+    public void ResetStage()
     {
         colorType = ColorType.RED;
         isStartGame = false;
         isEndGame = false;
         StageManager.instance.ChangeCamPosition();
+        colorEvent.Invoke(colorType);
         //ObjectPool._balls.Clear();
     }
 

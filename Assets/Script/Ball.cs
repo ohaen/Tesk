@@ -9,16 +9,19 @@ public class Ball : MonoBehaviour
     private Rigidbody _rigidbody;
     private MeshRenderer _meshRenderer;
 
-    private void Start()
+    private void Awake()
     {
         _collider = GetComponent<SphereCollider>();
         _rigidbody = GetComponent<Rigidbody>();
         _meshRenderer = GetComponent<MeshRenderer>();
-        _meshRenderer.material.color = PlayerController.colorType == ColorType.RED ? Color.red : Color.blue;
         PlayerController.Instance().colorEvent.AddListener(ChangeColor);
+    }
+    private void OnEnable()
+    {
+        _meshRenderer.material.color = PlayerController.colorType == ColorType.RED ? Color.red : Color.blue;
         StartCoroutine(nameof(ChangeSizeCollider));
     }
-    
+
     void ChangeColor(ColorType colorType)
     {
         Color ballColor;

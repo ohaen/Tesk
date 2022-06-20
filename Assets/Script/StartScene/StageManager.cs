@@ -9,6 +9,7 @@ public class StageManager : MonoBehaviour
     public static StageManager instance;
     public GameObject gameOver;
     public GameObject nextStage;
+    public GameObject gameClear;
     public GameObject followCam;
     public float cameraOffsetX;
     public float cameraOffsetY;
@@ -44,10 +45,21 @@ public class StageManager : MonoBehaviour
     {
         nextStage.SetActive(false);
     }
+
+    public void OnClearGame()
+    {
+        gameClear.SetActive(true);
+    }
+
     public void ChangeCamPosition()
     {
         Vector3 offset = new Vector3(cameraOffsetX, cameraOffsetY, cameraOffsetZ);
         Camera.main.transform.position = _stageTransform[StartScene.stage].position + offset;
+    }
+
+    public int LastStageCount()
+    {
+        return _stageTransform.Length;
     }
 
 }
